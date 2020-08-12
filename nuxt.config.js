@@ -29,6 +29,9 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/clean-blog.min.css',
+    "@/assets/css/bootstrap.min.css",
+    "@/assets/css/all.min.css",
   ],
   /*
   ** Plugins to load before mounting the App
@@ -71,5 +74,9 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+  },
+
+  generate:{
+    routes:['/blog/1','/blog/2']
   }
 }
