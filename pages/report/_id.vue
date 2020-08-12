@@ -52,4 +52,9 @@ export default {
 .meta{
     text-align:center;
 }
+header{
+  background-image:url('~@/assets/images/back3.jpg');
+  background-repeat:none;
+  background-size:cover;
+}
 </style>
