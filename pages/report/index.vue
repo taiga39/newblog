@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Graph />
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <h2 class="graph-h">Report</h2>
@@ -27,6 +28,8 @@
 </template>
 
 <script>
+import Graph from "@/components/graph.vue";
+
 export default {
     data(){
         return{
