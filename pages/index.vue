@@ -53,24 +53,19 @@ import '@/assets/css/clean-blog.min.css'
 import "@/assets/css/bootstrap.min.css";
 import "@/assets/css/all.min.css";
 
-export default {
+type Data = {
+  isActive: number 
+  termday: any
+}
+export default Vue.extend({
   data(){
     return{
       isActive: 1,
+      termday: 10000,
       report: "report",
-      blog:"blog",
-      tech:"tech",
-      termday:10000
+      blog: "blog",
+      tech: "tech"
     }
-  },
-  head: {
-    meta: [
-      { name: 'description', content: 'Gal☆Blog（ギャルブログ）のトップページです' },
-      { property: 'og:title', content: 'Gal☆Blog（ギャルブログ）' },
-      { property: 'og:description', content: 'Gal☆Blog（ギャルブログ）のトップページです' },
-      // { property: 'og:image', content: 'Gal☆Blog（ギャルブログ）' },
-
-    ],
   },
   methods: {
     change: function(num: number){
@@ -86,7 +81,7 @@ export default {
     var date2: any = new Date(2023, 5, 12);
     this.termday = (date2 - date1) / 86400000;
   }
-}
+})
 </script>
 
 <style scoped>
