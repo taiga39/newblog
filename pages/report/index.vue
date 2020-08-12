@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             <h2 class="graph-h">Report</h2>
-            <router-link v-bind:to="'/report/'+ jsontab[i].link" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
+            <nuxt-link v-bind:to="'/report/'+ jsontab[i].link" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
                 <div>
                     <h2 class="post-title">
                         {{jsontab[i+(page*5)].title}}
@@ -28,7 +28,7 @@
                     Posted 
                     on {{jsontab[i].date}} 
                 </p>
-            </router-link>
+            </nuxt-link>
             <ul class="pagenation">
                 <li v-for="p of pagelength" :key="p+'p'" v-bind:class="{ active: page === p-1 }">
                     <button v-on:click="pagenation(p)">

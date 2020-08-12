@@ -1,18 +1,18 @@
 <template>
 <div>
     <div class="post-preview" v-for="n of jsonlength" :key="n">
-        <router-link v-bind:to="'/' + catename + '/' + jsontab[n-1].link">
+        <nuxt-link v-bind:to="'/' + catename + '/' + jsontab[n-1].link">
             <h2 class="p">
                 {{jsontab[n-1].title}}
             </h2>
-        </router-link>
-        <p class="post-meta" style="padding-left:1em">
-            Posted 
-            on {{jsontab[n-1].date}}  
-        </p>
+            <p class="post-meta" style="padding-left:1em">
+                Posted 
+                on {{jsontab[n-1].date}}  
+            </p>
+        </nuxt-link>
     </div>
     <div class="clearfix">
-        <router-link class="btn btn-primary float-right" v-bind:to="'/' + catename">More Posts &rarr;</router-link>
+        <nuxt-link class="btn btn-primary float-right" v-bind:to="'/' + catename">More Posts &rarr;</nuxt-link>
     </div>
 </div>
 </template>

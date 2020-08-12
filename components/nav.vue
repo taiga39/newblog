@@ -1,29 +1,29 @@
 <template>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <router-link class="navbar-brand" to="/">Gal☆Blog</router-link>
+        <nuxt-link class="navbar-brand" to="/">Gal☆Blog</nuxt-link>
         <button class="navbar-toggler navbar-toggler-right" type="button" v-on:click='isActive=!isActive'>
             Menu
         </button>
         <div class="collapse navbar-collapse" v-bind:class='{show:isActive}' id="navbarResponsive">
             <ul class="navbar-nav ml-auto" v-on:click='isActive=!isActive'>
                 <li class="nav-item">
-                    <router-link to="/" class="nav-link">Home</router-link>
+                    <nuxt-link to="/" class="nav-link">Home</nuxt-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/report" class="nav-link">Report</router-link>
+                    <nuxt-link to="/report" class="nav-link">Report</nuxt-link>
                 </li>
                 <!-- <li class="nav-item">
-                    <router-link to="/portfolio" class="nav-link">Portfolio</router-link>
+                    <nuxt-link to="/portfolio" class="nav-link">Portfolio</nuxt-link>
                 </li> -->
                 <li class="nav-item">
-                    <router-link to="/blog" class="nav-link">Blog</router-link>
+                    <nuxt-link to="/blog" class="nav-link">Blog</nuxt-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/aboutme" class="nav-link">About Me</router-link>
+                    <nuxt-link to="/aboutme" class="nav-link">About Me</nuxt-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/tech" class="nav-link">Tech</router-link>
+                    <nuxt-link to="/tech" class="nav-link">Tech</nuxt-link>
                 </li>
             </ul>
         </div>
