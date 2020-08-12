@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1 style="font-weight:800;">Blog</h1>
+                    <h1 style="font-weight:800;">Tech</h1>
                     <span class="subheading">ギャルのように楽しく生きていく</span>
                 </div>
                 </div>
@@ -23,7 +23,7 @@ export default {
 </script>
 <style scoped>
 header{
-  background-image:url('~@/assets/images/back1.jpg');
+  background-image:url('~@/assets/images/back2.jpg');
   background-repeat:none;
   background-size:cover;
 }

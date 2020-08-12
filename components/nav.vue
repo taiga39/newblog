@@ -13,14 +13,14 @@
                 <li class="nav-item">
                     <router-link to="/report" class="nav-link">Report</router-link>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <router-link to="/portfolio" class="nav-link">Portfolio</router-link>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <router-link to="/blog" class="nav-link">Blog</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/aboutus" class="nav-link">About Me</router-link>
+                    <router-link to="/aboutme" class="nav-link">About Me</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link to="/tech" class="nav-link">Tech</router-link>
