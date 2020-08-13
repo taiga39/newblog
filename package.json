@@ -6,6 +6,7 @@
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
+    "build:copy:ssr": "rimraf functions/ssr && mkdirp functions/ssr && cp -R .nuxt/dist functions/ssr/dist",
     "generate": "nuxt-ts generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js"
