@@ -66,8 +66,8 @@ export default {
         this.content = JSON.parse(JSON.stringify(this.$store.state.blog))[this.article]["content"]
         this.meta.description = this.content
         this.date = JSON.parse(JSON.stringify(this.$store.state.blog))[this.article]["date"]
-    }
-  },
+        }
+    },
 }
 </script>
 <style scoped>

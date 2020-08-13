@@ -1,4 +1,5 @@
-
+const fs = require('fs')
+const jsonData = JSON.parse(fs.readFileSync('assets/json/data.json'))
 export default {
   /*
   ** Nuxt rendering mode
@@ -84,5 +85,10 @@ export default {
   },
 
   generate:{
-  }
+    routes() {
+      return (jsonData.route).map(route => {
+        return route
+      })
+    }
+  },
 }
