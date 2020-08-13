@@ -6,8 +6,8 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1 style="font-weight:800;">Gal☆Blog</h1>
-            <span class="subheading"></span>
+            <h1 style="font-weight:800;">タイガ★ログ</h1>
+            <span class="subheading">３０歳まで真面目に生きる</span>
           </div>
         </div>
       </div>

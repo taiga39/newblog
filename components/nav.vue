@@ -1,7 +1,7 @@
 <template>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-        <nuxt-link class="navbar-brand" to="/">Gal☆Blog</nuxt-link>
+        <nuxt-link class="navbar-brand" to="/">タイガ★ログ</nuxt-link>
         <button class="navbar-toggler navbar-toggler-right" type="button" v-on:click='isActive=!isActive'>
             Menu
         </button>

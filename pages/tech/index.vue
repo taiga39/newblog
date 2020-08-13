@@ -7,7 +7,7 @@
           <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
               <h1 style="font-weight:800;">Tech</h1>
-              <span class="subheading">ギャルのように楽しく生きていく</span>
+              <span class="subheading">真面目に作ったものとか</span>
           </div>
           </div>
       </div>
@@ -51,7 +51,7 @@ export default {
             page:0,
             pagelength:0,
             meta: {
-                title: 'Tech | Gal★Blog（ギャルブログ）',
+                title: 'Tech | タイガ★ログ）',
                 description: '技術について',
                 type: 'article',
                 url: 'https://example.com/test',

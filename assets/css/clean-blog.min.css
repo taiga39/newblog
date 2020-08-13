@@ -84,8 +84,13 @@ p{
     font-size:3em;
     font-weight:bold;
 }
+@font-face {
+    font-family: 'logofont';
+    src: url('../font/logo.ttf') format("opentype");
+}
 h1{
     text-align: center;
+    font-family: 'logofont';
 }
 article .container .row{
     min-height:600px;
@@ -96,4 +101,7 @@ article .container .row{
 .logos img{
     display:block;
     width:40px;
+}
+.navbar-brand{
+    font-family: 'logofont';
 }

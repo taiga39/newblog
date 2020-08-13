@@ -62,7 +62,7 @@ export default {
     mounted(){
         if(this.$store.state.blog != ""){
         this.title = JSON.parse(JSON.stringify(this.$store.state.blog))[this.article]["title"]
-        this.meta.title = this.title + ' | Blog | Gal★Blog（ギャルブログ）'
+        this.meta.title = this.title + ' | Blog | タイガ★ログ）'
         this.content = JSON.parse(JSON.stringify(this.$store.state.blog))[this.article]["content"]
         this.meta.description = this.content
         this.date = JSON.parse(JSON.stringify(this.$store.state.blog))[this.article]["date"]

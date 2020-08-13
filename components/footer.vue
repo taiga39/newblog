@@ -5,9 +5,9 @@
             <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
                 <li class="list-inline-item">
-                <a href="https://note.com/akb_gal" target="_blank">
+                <a href="#" target="_blank">
                     <span class="logos">
-                        <img src="/images/logos/note.png">
+                        <img src="/images/logos/twitter.png">
                     </span>
                 </a>
                 </li>
@@ -19,7 +19,7 @@
                 </a>
                 </li>
                 <li class="list-inline-item">
-                <a href="https://qrunch.net/@akibagal" target="_blank">
+                <a href="https://qrunch.net/@taiga/logs" target="_blank">
                     <span class="logos">
                         <img src="/images/logos/qr.png">
                     </span>
@@ -27,8 +27,8 @@
                 </li>
             </ul>
             <div style="display:flex;justify-content:space-around">
-                <p class="copyright text-muted">Email : akiba.gals@gmail.com</p>
-                <p class="copyright text-muted">Copyright &copy; Akiba no Gal</p>
+                <p class="copyright text-muted">Email : ishikawa.tigers@gmail.com</p>
+                <p class="copyright text-muted">Copyright &copy; IshikawaTiger</p>
             </div>
             </div>
         </div>
