@@ -43,13 +43,33 @@
 
 <script>
 export default {
-    data(){
+    data:function(){
         return{
             jsonlength: 0,
             maxlength:0,
             jsontab:"",
             page:0,
             pagelength:0,
+            meta: {
+                title: 'Tech | Gal★Blog（ギャルブログ）',
+                description: '技術について',
+                type: 'article',
+                url: 'https://example.com/test',
+                image: 'https://example.com/img/ogp/test.jpg',
+            },
+        }
+    },
+    head () {
+        return {
+            title: this.meta.title,
+            meta: [
+                { hid: 'description', name: 'description', content: this.meta.description },
+                { hid: 'og:type', property: 'og:type', content: this.meta.type },
+                { hid: 'og:title', property: 'og:title', content: this.meta.title },
+                { hid: 'og:description', property: 'og:description', content: this.meta.description },
+                { hid: 'og:url', property: 'og:url', content: this.meta.url },
+                { hid: 'og:image', property: 'og:image', content: this.meta.image },
+            ],
         }
     },
     mounted() {

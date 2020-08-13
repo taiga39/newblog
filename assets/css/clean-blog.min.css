@@ -78,3 +78,22 @@ p{
 .pagenation .active button{
     background: #bbb;
 }
+.graph-h{
+    text-align:center;
+    padding:1rem;
+    font-size:3em;
+    font-weight:bold;
+}
+h1{
+    text-align: center;
+}
+article .container .row{
+    min-height:600px;
+}
+.logos{
+    display:flex;
+}
+.logos img{
+    display:block;
+    width:40px;
+}

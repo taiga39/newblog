@@ -7,7 +7,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
             <h1 style="font-weight:800;">Gal☆Blog</h1>
-            <span class="subheading">ギャルのように楽しく生きていく</span>
+            <span class="subheading"></span>
           </div>
         </div>
       </div>

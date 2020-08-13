@@ -32,8 +32,28 @@ export default {
       content:"",
       description:"",
       category:"",
-      date:""
+      date:"",
+      meta: {
+          title: '',
+          description: '',
+          type: 'article',
+          url: 'https://example.com/test',
+          image: 'https://example.com/img/ogp/test.jpg',
+      },
     }
+  },
+  head () {
+      return {
+          title: this.meta.title,
+          meta: [
+              { hid: 'description', name: 'description', content: this.meta.description },
+              { hid: 'og:type', property: 'og:type', content: this.meta.type },
+              { hid: 'og:title', property: 'og:title', content: this.meta.title },
+              { hid: 'og:description', property: 'og:description', content: this.meta.description },
+              { hid: 'og:url', property: 'og:url', content: this.meta.url },
+              { hid: 'og:image', property: 'og:image', content: this.meta.image },
+          ],
+      }
   },
   created(){
       this.category = (this.$route.path).split('/')[1]
@@ -42,7 +62,9 @@ export default {
   mounted(){
     if(this.$store.state.tech != ""){
       this.title = JSON.parse(JSON.stringify(this.$store.state.tech))[this.article]["title"]
+      this.meta.title = this.title + ' | Tech | Gal★Blog（ギャルブログ）'
       this.content = JSON.parse(JSON.stringify(this.$store.state.tech))[this.article]["content"]
+      this.meta.description = this.content
       this.date = JSON.parse(JSON.stringify(this.$store.state.tech))[this.article]["date"]
     }
   },

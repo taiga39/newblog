@@ -5,33 +5,40 @@
             <div class="col-lg-8 col-md-10 mx-auto">
             <ul class="list-inline text-center">
                 <li class="list-inline-item">
-                <a href="#">
-                    <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                <a href="https://note.com/akb_gal" target="_blank">
+                    <span class="logos">
+                        <img src="/images/logos/note.png">
                     </span>
                 </a>
                 </li>
                 <li class="list-inline-item">
-                <a href="#">
-                    <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                <a href="https://github.com/taiga39" target="_blank">
+                    <span class="logos">
+                        <img src="/images/logos/github.png">
                     </span>
                 </a>
                 </li>
                 <li class="list-inline-item">
-                <a href="#">
-                    <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                <a href="https://qrunch.net/@akibagal" target="_blank">
+                    <span class="logos">
+                        <img src="/images/logos/qr.png">
                     </span>
                 </a>
                 </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+            <div style="display:flex;justify-content:space-around">
+                <p class="copyright text-muted">Email : akiba.gals@gmail.com</p>
+                <p class="copyright text-muted">Copyright &copy; Akiba no Gal</p>
+            </div>
             </div>
         </div>
         </div>
     </footer>
 </template>
+<style scoped>
+footer{
+    background-color: #0a2844;
+    margin-top:50px;
+}
+
+</style>
