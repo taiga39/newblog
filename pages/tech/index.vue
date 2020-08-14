@@ -51,7 +51,7 @@ export default {
             page:0,
             pagelength:0,
             meta: {
-                title: 'Tech | タイガ★ログ）',
+                title: 'Tech | タイガ★ログ',
                 description: '技術について',
                 type: 'article',
                 url: 'https://example.com/test',

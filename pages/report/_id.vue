@@ -62,7 +62,7 @@ export default {
   mounted(){
     if(this.$store.state.report != ""){
       this.title = JSON.parse(JSON.stringify(this.$store.state.report))[this.article]["title"]
-      this.meta.title = this.title + ' | Report | タイガ★ログ）'
+      this.meta.title = this.title + ' | Report | タイガ★ログ'
       this.content = JSON.parse(JSON.stringify(this.$store.state.report))[this.article]["content"]
       this.meta.description = this.content
       this.date = JSON.parse(JSON.stringify(this.$store.state.report))[this.article]["date"]

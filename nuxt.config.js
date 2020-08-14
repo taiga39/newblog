@@ -16,13 +16,13 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: 'タイガ★ログ）',
+    title: 'タイガ★ログ',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      // { hid: 'title', name: 'title', content: 'タイガ★ログ）' },
+      // { hid: 'title', name: 'title', content: 'タイガ★ログ' },
       { hid: 'description', name: 'description', content: '共通ディスクリプション' },
-      { hid: 'og:site_name', property: 'og:site_name', content: 'タイガ★ログ）' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'タイガ★ログ' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: 'https://example.com' },
       { hid: 'og:title', property: 'og:title', content: 'サイト名' },
