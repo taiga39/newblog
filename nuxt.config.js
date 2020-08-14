@@ -1,5 +1,6 @@
 const fs = require('fs')
 const jsonData = JSON.parse(fs.readFileSync('assets/json/data.json'))
+const config = require('./contentful.json')
 export default {
   /*
   ** Nuxt rendering mode
@@ -91,4 +92,10 @@ export default {
       })
     }
   },
+  env: {
+    CTF_SPACE_ID: config.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
+    CTF_PERSON_ID: config.CTF_PERSON_ID,
+    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
+  }
 }
