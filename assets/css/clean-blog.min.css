@@ -101,6 +101,7 @@ article .container .row{
 .logos img{
     display:block;
     width:40px;
+    height:40px;
 }
 .navbar-brand{
     font-family: 'logofont';
