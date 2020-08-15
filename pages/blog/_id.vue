@@ -38,7 +38,7 @@ export default {
                 description: 'ブログ記事',
                 type: 'article',
                 url: 'https://taiga.pw/blog',
-                image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg',
+                image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
             },
         }
     },
@@ -64,7 +64,7 @@ export default {
         this.title = JSON.parse(JSON.stringify(this.$store.state.blog))[this.article]["title"]
         this.meta.title = this.title + ' | Blog | タイガ★ログ'
         this.content = JSON.parse(JSON.stringify(this.$store.state.blog))[this.article]["content"]
-        this.meta.description = this.content
+        this.meta.description = (this.content).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')
         this.date = JSON.parse(JSON.stringify(this.$store.state.blog))[this.article]["date"]
         }
     },

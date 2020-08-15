@@ -38,7 +38,7 @@ export default {
           description: '記録',
           type: 'article',
           url: 'https://taiga.pw/report',
-          image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg',
+          image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
         },
       }
     },
@@ -64,7 +64,7 @@ export default {
       this.title = JSON.parse(JSON.stringify(this.$store.state.report))[this.article]["title"]
       this.meta.title = this.title + ' | Report | タイガ★ログ'
       this.content = JSON.parse(JSON.stringify(this.$store.state.report))[this.article]["content"]
-      this.meta.description = this.content
+        this.meta.description = (this.content).replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')
       this.date = JSON.parse(JSON.stringify(this.$store.state.report))[this.article]["date"]
     }
   },

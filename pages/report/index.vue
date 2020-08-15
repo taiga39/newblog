@@ -58,7 +58,7 @@ export default {
                 description: '記録',
                 type: 'article',
                 url: 'https://taiga.pw/report',
-                image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg',
+                image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
             },
         }
     },

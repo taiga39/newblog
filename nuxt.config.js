@@ -26,7 +26,7 @@ export default {
       { hid: 'og:url', property: 'og:url', content: 'https://taiga.pw' },
       { hid: 'og:title', property: 'og:title', content: 'タイガ★ログ' },
       { hid: 'og:description', property: 'og:description', content: '３０歳までは真面目に生きようと思って、やったこととかの記録。' },
-      { hid: 'og:image', property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg' },
+      { hid: 'og:image', property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
