@@ -34,8 +34,8 @@ export default {
             category:"",
             date:"",
             meta: {
-                title: JSON.parse(JSON.stringify(this.$store.state.report))[(this.$route.path).split('/')[2]]["title"] + ' | Blog | タイガ★ログ',
-                description: JSON.parse(JSON.stringify(this.$store.state.report))[(this.$route.path).split('/')[2]]["content"].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,''),
+                title: JSON.parse(JSON.stringify(this.$store.state.blog))[(this.$route.path).split('/')[2]]["title"] + ' | Blog | タイガ★ログ',
+                description: JSON.parse(JSON.stringify(this.$store.state.blog))[(this.$route.path).split('/')[2]]["content"].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,''),
                 type: 'article',
                 url: 'https://taiga.pw/blog',
                 image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
