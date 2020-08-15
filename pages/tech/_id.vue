@@ -37,7 +37,7 @@ export default {
           title: JSON.parse(JSON.stringify(this.$store.state.tech))[(this.$route.path).split('/')[2]]["title"] + ' | Tech | タイガ★ログ',
           description: (JSON.parse(JSON.stringify(this.$store.state.tech))[(this.$route.path).split('/')[2]]["content"].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')).substr(0,82),
           type: 'article',
-          url: 'https://taiga.pw/tech',
+          url: 'https://taiga.pw/tech/'+(this.$route.path).split('/')[2],
           image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
       },
     }
