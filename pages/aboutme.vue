@@ -16,9 +16,20 @@
         <article>
             <div class="container">
             <div class="row">
-                <!-- <div class="col-lg-8 col-md-10 mx-auto" v-html="content"> -->
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    {{ $route.params.id }}
+                    <h2>イシカワタイガ</h2>
+                    <h3>経歴</h3>
+                    <p>
+                        <br>
+                        ２０１７年に大学を卒業後、引き篭もる。
+                        <br>
+                        ２０１９年４月、東京でWebエンジニアを始める。
+                        <br>
+                        今のところ、初学者くらいのエンジニア。
+                        <br>
+                        <br>
+                        がんばります、ゴルフ１００切りしたい。
+                    </p>
                 </div>
             </div>
             </div>
@@ -30,11 +41,11 @@ export default {
     data:function(){
     return{
       meta: {
-          title: 'Test-Page!',
-          description: 'ページ個別のディスクリプショaン',
-          type: 'article',
-          url: 'https://example.com/test',
-          image: 'https://example.com/img/ogp/test.jpg',
+        title: 'About Me | タイガ★ログ',
+        description: 'イシカワタイガ',
+        type: 'article',
+        url: 'https://taiga.pw/aboutme',
+        image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
       },
     }
   },

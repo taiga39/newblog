@@ -34,11 +34,11 @@ export default {
       category:"",
       date:"",
         meta: {
-            title: '',
-            description: '',
-            type: 'article',
-            url: 'https://example.com/test',
-            image: 'https://example.com/img/ogp/test.jpg',
+          title: JSON.parse(JSON.stringify(this.$store.state.report))[(this.$route.path).split('/')[2]]["title"] + ' | Report | タイガ★ログ',
+          description: (JSON.parse(JSON.stringify(this.$store.state.report))[(this.$route.path).split('/')[2]]["content"].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')).substr(0,82),
+          type: 'article',
+          url: 'https://taiga.pw/report/'+(this.$route.path).split('/')[2],
+          image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
         },
       }
     },
@@ -62,9 +62,7 @@ export default {
   mounted(){
     if(this.$store.state.report != ""){
       this.title = JSON.parse(JSON.stringify(this.$store.state.report))[this.article]["title"]
-      this.meta.title = this.title + ' | Report | タイガ★ログ）'
       this.content = JSON.parse(JSON.stringify(this.$store.state.report))[this.article]["content"]
-      this.meta.description = this.content
       this.date = JSON.parse(JSON.stringify(this.$store.state.report))[this.article]["date"]
     }
   },

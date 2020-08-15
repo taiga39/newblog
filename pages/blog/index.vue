@@ -51,11 +51,11 @@ export default {
             page:0,
             pagelength:0,
             meta: {
-                title: 'Test-Page!',
-                description: 'ページ個別のディスクリプション',
+                title: 'Blog | タイガ★ログ',
+                description: 'ブログ記事',
                 type: 'article',
-                url: 'https://example.com/test',
-                image: 'https://example.com/img/ogp/test.jpg',
+                url: 'https://taiga.pw/blog',
+                image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
             },
         }
     },
