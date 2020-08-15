@@ -20,14 +20,13 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      // { hid: 'title', name: 'title', content: 'タイガ★ログ' },
-      { hid: 'description', name: 'description', content: '共通ディスクリプション' },
+      { hid: 'description', name: 'description', content: '３０歳までは真面目に生きようと思って、やったこととかの記録。' },
       { hid: 'og:site_name', property: 'og:site_name', content: 'タイガ★ログ' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:url', property: 'og:url', content: 'https://example.com' },
-      { hid: 'og:title', property: 'og:title', content: 'サイト名' },
-      { hid: 'og:description', property: 'og:description', content: '共通ディスクリプション' },
-      { hid: 'og:image', property: 'og:image', content: 'https://example.com/img/ogp/common.jpg' },
+      { hid: 'og:url', property: 'og:url', content: 'https://taiga.pw' },
+      { hid: 'og:title', property: 'og:title', content: 'タイガ★ログ' },
+      { hid: 'og:description', property: 'og:description', content: '３０歳までは真面目に生きようと思って、やったこととかの記録。' },
+      { hid: 'og:image', property: 'og:image', content: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

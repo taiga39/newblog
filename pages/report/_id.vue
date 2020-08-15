@@ -34,11 +34,11 @@ export default {
       category:"",
       date:"",
         meta: {
-            title: '',
-            description: '',
-            type: 'article',
-            url: 'https://example.com/test',
-            image: 'https://example.com/img/ogp/test.jpg',
+          title: 'Report | タイガ★ログ',
+          description: '記録',
+          type: 'article',
+          url: 'https://taiga.pw/report',
+          image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg',
         },
       }
     },

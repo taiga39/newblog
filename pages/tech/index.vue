@@ -54,8 +54,8 @@ export default {
                 title: 'Tech | タイガ★ログ',
                 description: '技術について',
                 type: 'article',
-                url: 'https://example.com/test',
-                image: 'https://example.com/img/ogp/test.jpg',
+                url: 'https://taiga.pw/tech',
+                image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg',
             },
         }
     },

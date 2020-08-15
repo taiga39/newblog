@@ -30,11 +30,11 @@ export default {
     data:function(){
     return{
       meta: {
-          title: 'Test-Page!',
-          description: 'ページ個別のディスクリプショaン',
-          type: 'article',
-          url: 'https://example.com/test',
-          image: 'https://example.com/img/ogp/test.jpg',
+        title: 'About Me | タイガ★ログ',
+        description: '僕について',
+        type: 'article',
+        url: 'https://taiga.pw/aboutme',
+        image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg',
       },
     }
   },
