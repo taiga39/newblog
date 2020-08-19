@@ -1,14 +1,14 @@
 <template>
   <div>
-    <!-- render data of the person -->
-    <h1>{{ person.fields.name }}</h1>
     <!-- render blog posts -->
     <ul>
       <li v-for="post in posts" :key="post.fields.title">
-        {{ post.fields.title }}
+        <div v-html="$md.render(post.fields.body)">
+        </div>
       </li>
     </ul>
-    {{posts}}
+    <!-- <div v-html="$md.render(posts[0].fields.description)">
+    </div> -->
   </div>
 </template>
 
@@ -22,19 +22,21 @@
     asyncData ({env}) {
       return Promise.all([
         // fetch the owner of the blog
-        client.getEntries({
-          'sys.id': env.CTF_PERSON_ID
-        }),
+        // client.getEntries({
+        //   'sys.id': env.CTF_PERSON_ID
+        // }),
         // fetch all blog posts sorted by creation date
         client.getEntries({
           'content_type': env.CTF_BLOG_POST_TYPE_ID,
-          order: '-sys.createdAt'
+          order: '-sys.createdAt',
+          "fields.tags":"blog",
+          limit:5
         })
-      ]).then(([entries, posts]) => {
+      ]).then(([posts]) => {
         // return data that should be available
         // in the template
         return {
-          person: entries.items[0],
+        //   person: entries.items[0],
           posts: posts.items
         }
       }).catch(console.error)
