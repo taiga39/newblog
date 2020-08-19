@@ -1,7 +1,20 @@
 const fs = require('fs')
 const jsonData = JSON.parse(fs.readFileSync('assets/json/data.json'))
 const config = require('./contentful.json')
+
+const contentful = require('contentful');
+const client = contentful.createClient({
+  space: config.CTF_SPACE_ID,
+  accessToken: config.CTF_CDA_ACCESS_TOKEN
+});
+
 export default {
+
+  env: {
+    CTF_SPACE_ID: config.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
+    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
+  },
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -66,8 +79,12 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt/content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/markdownit'
   ],
+  markdownit: {
+    injected: true
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -84,18 +101,34 @@ export default {
   */
   build: {
   },
-
   generate:{
     routes() {
-      return (jsonData.route).map(route => {
-        return route
+      return Promise.all([
+         client.getEntries({
+           'content_type': config.CTF_BLOG_POST_TYPE_ID,
+           order: '-sys.createdAt',
+           "fields.tags":"report",
+         }),
+         client.getEntries({
+           'content_type': config.CTF_BLOG_POST_TYPE_ID,
+           order: '-sys.createdAt',
+           "fields.tags":"blog",
+         })
+      ]).then(([{ items: hogeItems }, { items: hugaItems }]) => {
+        const hoge = hogeItems.map((item) => {
+          return {
+            route: `/report/${item.fields.slug}`,
+            payload: item
+          }
+        })
+        const huga = hugaItems.map((item) => {
+          return {
+            route: `/blog/${item.fields.slug}`,
+            payload: item
+          }
+        })
+        return [].concat(hoge, huga)
       })
     }
-  },
-  env: {
-    CTF_SPACE_ID: config.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: config.CTF_CDA_ACCESS_TOKEN,
-    CTF_PERSON_ID: config.CTF_PERSON_ID,
-    CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
   }
 }
