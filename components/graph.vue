@@ -180,6 +180,8 @@
 </style>
 
 <script>
+import {createClient} from '~/plugins/contentful.js'
+const client = createClient()
 export default {
     data(){
         return{
@@ -203,52 +205,30 @@ export default {
             ibtunit:'points'
         }
     },
-    props:["jsondata"],
+    props:["jsondata","reports"],
     mounted() {
-        if(this.$store.state.target != null){
-            this.weight = this.$store.state.target.weight
-            this.bp = this.$store.state.target.press
-            this.lt = this.$store.state.target.alltime
-            this.toefl = this.$store.state.target.arm
-
-            this.pweight = (this.$store.state.target.weight - 65) / 10
-            this.pbp = (this.$store.state.target.press -40) / 40
-            this.plt = this.$store.state.target.alltime / 10000
-            this.ptoefl = (this.$store.state.target.arm-30) /70
+        if(this.reports[0].fields != null){
+            this.weight = this.reports[0].fields.weight
+            this.bp = this.reports[0].fields.bench
+            this.lt = 0
+            this.reports.forEach(function(a){
+                this.lt = a.fields.alltime + this.lt
+            }, this);
+            this.toefl = this.reports[0].fields.toefl
+            this.pweight = (this.reports[0].fields.weight - 65) / 10
+            this.pbp = (this.reports[0].fields.bench -40) / 40
+            this.plt = this.lt / 10000
+            this.ptoefl = (this.reports[0].fields.toefl-30) /70
             if(window.innerWidth < 912){
-                this.hweight = (this.$store.state.target.weight -65) / 10 * 33 + "vw"
-                this.hbp = (this.$store.state.target.press - 40) / 40 * 33 + "vw"
-                this.hlt = this.$store.state.target.alltime / 100 * 33 + "vw"
-                this.htoefl = (this.$store.state.target.arm -30) /70  * 33 + "vw"
+                this.hweight = (this.reports[0].fields.weight -65) / 10 * 33 + "vw"
+                this.hbp = (this.reports[0].fields.bench - 40) / 40 * 33 + "vw"
+                this.hlt = this.lt / 10000 * 33 + "vw"
+                this.htoefl = (this.reports[0].fields.toefl -30) /70  * 33 + "vw"
             }else{
-                this.hweight = (this.$store.state.target.weight -65) / 10 * 186 + "px"
-                this.hbp = (this.$store.state.target.press - 40) / 40 * 186 + "px"
-                this.hlt = this.$store.state.target.alltime / 10000 * 186 + "px"
-                this.htoefl = (this.$store.state.target.arm - 30) /70  * 186 + "px"
-            }
-        }
-    },
-    watch: {
-        jsondata:function(one){
-            this.weight = one.target.weight
-            this.bp = one.target.press
-            this.lt = one.target.alltime
-            this.toefl = this.$store.state.target.arm
-
-            this.pweight = (one.target.weight - 65) / 10
-            this.pbp = (one.target.press -40) / 40
-            this.plt = one.target.alltime / 100
-            this.ptoefl = (one.target.arm-30) /70
-            if(window.innerWidth < 912){
-                this.hweight = (one.target.weight -65) / 10 * 33 + "vw"
-                this.hbp = (one.target.press - 40) / 40 * 33 + "vw"
-                this.hlt = one.target.alltime / 10000 * 33 + "vw"
-                this.htoefl = (one.target.arm -30) /70  * 33 + "vw"
-            }else{
-                this.hweight = (one.target.weight -65) / 10 * 186 + "px"
-                this.hbp = (one.target.press - 40) / 40 * 186 + "px"
-                this.hlt = one.target.alltime / 10000 * 186 + "px"
-                this.htoefl = (one.target.arm - 30)/70  * 186 + "px"
+                this.hweight = (this.reports[0].fields.weight -65) / 10 * 186 + "px"
+                this.hbp = (this.reports[0].fields.bench - 40) / 40 * 186 + "px"
+                this.hlt = this.lt / 10000 * 186 + "px"
+                this.htoefl = (this.reports[0].fields.toefl - 30) /70  * 186 + "px"
             }
         }
     },
@@ -261,7 +241,7 @@ export default {
                 this.bp = this.pbp *  100
                 this.bpunit = '%'
             }else if(i == 3){
-                this.lt = this.plt *  100
+                this.lt = (this.plt *  100).toFixed(3)
                 this.ltunit = '%'
             }else if(i == 4){
                 this.toefl = this.ptoefl *  100
@@ -270,16 +250,16 @@ export default {
         },
         mouseleave: function(i){
             if(i ==  1){
-                this.weight = this.$store.state.target.weight 
+                this.weight = this.reports[0].fields.weight 
                 this.kgunit = 'kg'
             }else if(i == 2){
-                this.bp = this.$store.state.target.press
+                this.bp = this.reports[0].fields.bench
                 this.bpunit = 'kg'
             }else if(i == 3){
-                this.lt = this.$store.state.target.alltime
+                this.lt = this.reports[0].fields.alltime
                 this.ltunit = 'hours'
             }else if(i == 4){
-                this.toefl = this.$store.state.target.arm
+                this.toefl = this.reports[0].fields.toefl
                 this.ibtunit = 'points'
             }  
         }

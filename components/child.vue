@@ -1,6 +1,5 @@
 <template>
 <div>
-    {{jsondata}}
     <div class="post-preview" v-for="n of jsonlength" :key="n">
         <nuxt-link v-bind:to="'/' + catename + '/' + jsontab[n-1].fields.slug">
             <h2 class="p">

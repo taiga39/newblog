@@ -17,24 +17,24 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <h2 class="graph-h">Blog</h2>
-                <nuxt-link v-bind:to="'/blog/'+ jsontab[i].link" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
+                <nuxt-link v-bind:to="'/blog/'+ blogs[i].fields.slug" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
                     <div>
                         <h2 class="post-title">
-                            {{jsontab[i+(page*5)].title}}
+                            {{blogs[i+(page*5)].fields.title}}
                         </h2>
                     </div>
                     <p class="post-meta" style="padding-left:1em">
                         Posted 
-                        on {{jsontab[i].date}} 
+                        on {{(blogs[i].fields.publishDate).slice(0,-12)}} 
                     </p>
                 </nuxt-link>
-                <ul class="pagenation">
+                <!-- <ul class="pagenation">
                     <li v-for="p of pagelength" :key="p+'p'" v-bind:class="{ active: page === p-1 }">
                         <button v-on:click="pagenation(p);active()">
                             {{p}}
                         </button>
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div>
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import {createClient} from '~/plugins/contentful.js'
+const client = createClient()
 export default {
     data:function(){
         return{
@@ -72,22 +74,8 @@ export default {
             ],
         }
     },
-    mounted() {
-        this.jsontab = this.$store.state.blog
-        if(this.$store.state.blog != null){
-            if(JSON.parse(JSON.stringify(Object.keys(this.$store.state.blog).length)) < 5){
-                this.jsonlength = JSON.parse(JSON.stringify(Object.keys(this.$store.state.blog).length))
-            }else{
-                this.jsonlength = 5
-            }
-            this.maxlength = JSON.parse(JSON.stringify(Object.keys(this.$store.state.blog).length))
-            this.jsontab = Object.values(this.$store.state.blog)
-            this.pagelength = Math.floor(this.maxlength/5)+1
-        }
-    },
     methods:{
         pagenation:function(i){
-            console.log(i)
             this.page = i-1
             if(this.page != 0){
                 this.jsonlength = this.maxlength % (this.page*5)
@@ -95,6 +83,21 @@ export default {
                 this.jsonlength = 5
             }
         }
+    },
+    asyncData ({env}) {
+      return Promise.all([
+        client.getEntries({
+          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          order: '-sys.createdAt',
+          "fields.tags":"blog",
+        }),
+      ]).then(([blogs]) => {
+        return {
+          blogs: blogs.items,
+          jsonlength: blogs.items.length,
+          pagelength: Math.floor(blogs.items.length/5)+1
+        }
+      }).catch(console.error)
     }
 }
 </script>
