@@ -71,7 +71,7 @@
       }
     },
     methods: {
-      change: function(){
+      change: function(num){
         this.isActive = num
       }
     },
