@@ -120,8 +120,13 @@ export default {
            'content_type': config.CTF_BLOG_POST_TYPE_ID,
            order: '-sys.createdAt',
            "fields.tags":"blog",
-         })
-      ]).then(([{ items: hogeItems }, { items: hugaItems }]) => {
+         }),
+         client.getEntries({
+          'content_type': config.CTF_BLOG_POST_TYPE_ID,
+          order: '-sys.createdAt',
+          "fields.tags":"tech",
+        })
+      ]).then(([{ items: hogeItems }, { items: hugaItems },{ items: techItems }]) => {
         const hoge = hogeItems.map((item) => {
           return {
             route: `/report/${item.fields.slug}`,
@@ -134,7 +139,13 @@ export default {
             payload: item
           }
         })
-        return [].concat(hoge, huga)
+        const tech = techItems.map((item) => {
+          return {
+            route: `/tech/${item.fields.slug}`,
+            payload: item
+          }
+        })
+        return [].concat(hoge, huga, tech)
       })
     }
   }
