@@ -39,15 +39,16 @@ export default {
                 title: "sss",
                 description: "ss",
                 type: 'article',
-                url: 'https://taiga.pw/blog/'+ blogs[0].fields.slug,
+                url: 'https://taiga.pw/blog/'+(this.$route.path).split('/')[2],
                 image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
             },
             metatitle:"",
-            metadescription:""        }
+            metadescription:""   
+        }
     },
     head () {
       return {
-        title: this.metatitle + ' | Tech | タイガ★ログ',
+        title: this.metatitle + ' | Blog | タイガ★ログ',
         meta: [
             { hid: 'description', name: 'description', content: this.metadescription },
             { hid: 'og:type', property: 'og:type', content: this.meta.type },
@@ -57,10 +58,6 @@ export default {
             { hid: 'og:image', property: 'og:image', content: this.meta.image },
         ],
       }
-    },
-    created(){
-        this.category = (this.$route.path).split('/')[1]
-        this.article = (this.$route.path).split('/')[2]
     },
     asyncData ({env,params}) {
     return Promise.all([

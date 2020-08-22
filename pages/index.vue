@@ -45,7 +45,7 @@
 </div>
 </template>
 
-<script lang="ts">
+<script>
   import {createClient} from '~/plugins/contentful.js'
   import Vue from 'vue'
   import Child from "@/components/child.vue";
@@ -54,10 +54,10 @@
   import "@/assets/css/all.min.css";
   import { mapState, mapGetters } from 'vuex'
 
-  type Data = {
-    isActive: number 
-    termday: any
-  }
+  // type Data = {
+  //   isActive: number 
+  //   termday: any
+  // }
   const client = createClient()
 
   export default {
@@ -71,7 +71,7 @@
       }
     },
     methods: {
-      change: function(num: number){
+      change: function(){
         this.isActive = num
       }
     },
@@ -80,8 +80,8 @@
       var year = today.getFullYear();
       var month = today.getMonth() + 1;
       var day = today.getDate();
-      var date1: any = new Date(year ,month ,day);
-      var date2: any = new Date(2023, 5, 12);
+      var date1 = new Date(year ,month ,day);
+      var date2 = new Date(2023, 5, 12);
       this.termday = (date2 - date1) / 86400000;
     },
     computed:{
