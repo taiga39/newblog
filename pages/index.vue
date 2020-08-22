@@ -30,58 +30,64 @@
         </div>
         <ul style="padding:0">
           <li v-if="isActive === 1" style="list-style:none;">
-            <Child :jsondata="$store.state.report" :catename="report" /> 
+            <Child :jsondata="$store.state.posts" :catename="report" /> 
           </li>
           <li v-else-if="isActive === 2" style="list-style:none;">
-            <Child :jsondata="$store.state.blog" :catename="blog" /> 
+            <Child :jsondata="$store.state.blogs" :catename="blog" /> 
           </li>
           <li v-else-if="isActive === 3" style="list-style:none;">
-            <Child :jsondata="$store.state.tech" :catename="tech"/> 
+            <Child :jsondata="$store.state.techs" :catename="tech"/> 
           </li>
         </ul>
-
       </div>
     </div>
   </div>
 </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import Child from "@/components/child.vue";
-import '@/assets/css/clean-blog.min.css'
-import "@/assets/css/bootstrap.min.css";
-import "@/assets/css/all.min.css";
+<script>
+  import {createClient} from '~/plugins/contentful.js'
+  import Vue from 'vue'
+  import Child from "@/components/child.vue";
+  import '@/assets/css/clean-blog.min.css'
+  import "@/assets/css/bootstrap.min.css";
+  import "@/assets/css/all.min.css";
+  import { mapState, mapGetters } from 'vuex'
 
-type Data = {
-  isActive: number 
-  termday: any
-}
-export default Vue.extend({
-  data(){
-    return{
-      isActive: 1,
-      termday: 10000,
-      report: "report",
-      blog: "blog",
-      tech: "tech"
+  // type Data = {
+  //   isActive: number 
+  //   termday: any
+  // }
+  const client = createClient()
+
+  export default {
+    data(){
+      return{
+        isActive: 1,
+        termday: 10000,
+        report: "report",
+        blog: "blog",
+        tech: "tech"
+      }
+    },
+    methods: {
+      change: function(num){
+        this.isActive = num
+      }
+    },
+    mounted(){
+      var today = new Date();
+      var year = today.getFullYear();
+      var month = today.getMonth() + 1;
+      var day = today.getDate();
+      var date1 = new Date(year ,month ,day);
+      var date2 = new Date(2023, 5, 12);
+      this.termday = (date2 - date1) / 86400000;
+    },
+    computed:{
+      ...mapState(['posts','blogs','techs'])
     }
-  },
-  methods: {
-    change: function(num: number){
-      this.isActive = num
-    }
-  },
-  mounted(){
-    var today = new Date();
-    var year = today.getFullYear();
-    var month = today.getMonth() + 1;
-    var day = today.getDate();
-    var date1: any = new Date(year ,month ,day);
-    var date2: any = new Date(2023, 5, 12);
-    this.termday = (date2 - date1) / 86400000;
   }
-})
 </script>
 
 <style scoped>

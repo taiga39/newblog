@@ -14,34 +14,36 @@
       </div>
   </header>
   <div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-            <h2 class="graph-h">Tech</h2>
-            <nuxt-link v-bind:to="'/tech/'+ jsontab[i].link" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
-                <div>
-                    <h2 class="post-title">
-                        {{jsontab[i+(page*5)].title}}
-                    </h2>
-                </div>
-                <p class="post-meta" style="padding-left:1em">
-                    Posted 
-                    on {{jsontab[i].date}} 
-                </p>
-            </nuxt-link>
-            <ul class="pagenation">
-                <li v-for="p of pagelength" :key="p+'p'" v-bind:class="{ active: page === p-1 }">
-                    <button v-on:click="pagenation(p);active()">
-                        {{p}}
-                    </button>
-                </li>
-            </ul>
-        </div>
+      <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+              <h2 class="graph-h">Tech</h2>
+              <nuxt-link v-bind:to="'/tech/'+ blogs[i].fields.slug" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
+                  <div>
+                      <h2 class="post-title">
+                          {{blogs[i+(page*5)].fields.title}}
+                      </h2>
+                  </div>
+                  <p class="post-meta" style="padding-left:1em">
+                      Posted 
+                      on {{(blogs[i].fields.publishDate).slice(0,-12)}} 
+                  </p>
+              </nuxt-link>
+              <!-- <ul class="pagenation">
+                  <li v-for="p of pagelength" :key="p+'p'" v-bind:class="{ active: page === p-1 }">
+                      <button v-on:click="pagenation(p);active()">
+                          {{p}}
+                      </button>
+                  </li>
+              </ul> -->
+          </div>
+      </div>
     </div>
-  </div>
 </div>
 </template>
 
 <script>
+import {createClient} from '~/plugins/contentful.js'
+const client = createClient()
 export default {
     data:function(){
         return{
@@ -51,8 +53,8 @@ export default {
             page:0,
             pagelength:0,
             meta: {
-                title: 'Tech | タイガ★ログ',
-                description: '技術について',
+                title: 'BTech | タイガ★ログ',
+                description: '技術記事',
                 type: 'article',
                 url: 'https://taiga.pw/tech',
                 image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
@@ -72,22 +74,8 @@ export default {
             ],
         }
     },
-    mounted() {
-        this.jsontab = this.$store.state.tech
-        if(this.$store.state.tech != null){
-            if(JSON.parse(JSON.stringify(Object.keys(this.$store.state.tech).length)) < 5){
-                this.jsonlength = JSON.parse(JSON.stringify(Object.keys(this.$store.state.tech).length))
-            }else{
-                this.jsonlength = 5
-            }
-            this.maxlength = JSON.parse(JSON.stringify(Object.keys(this.$store.state.tech).length))
-            this.jsontab = Object.values(this.$store.state.tech)
-            this.pagelength = Math.floor(this.maxlength/5)+1
-        }
-    },
     methods:{
         pagenation:function(i){
-            console.log(i)
             this.page = i-1
             if(this.page != 0){
                 this.jsonlength = this.maxlength % (this.page*5)
@@ -95,12 +83,27 @@ export default {
                 this.jsonlength = 5
             }
         }
+    },
+    asyncData ({env}) {
+      return Promise.all([
+        client.getEntries({
+          'content_type': env.CTF_BLOG_POST_TYPE_ID,
+          order: '-sys.createdAt',
+          "fields.tags":"tech",
+        }),
+      ]).then(([blogs]) => {
+        return {
+          blogs: blogs.items,
+          jsonlength: blogs.items.length,
+          pagelength: Math.floor(blogs.items.length/5)+1
+        }
+      }).catch(console.error)
     }
 }
 </script>
 <style scoped>
 header{
-  background-image:url('~@/assets/images/back2.jpg');
+  background-image:url('~@/assets/images/back1.jpg');
   background-repeat:none;
   background-size:cover;
 }

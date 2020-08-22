@@ -1,13 +1,13 @@
 <template>
 <div>
     <div class="post-preview" v-for="n of jsonlength" :key="n">
-        <nuxt-link v-bind:to="'/' + catename + '/' + jsontab[n-1].link">
+        <nuxt-link v-bind:to="'/' + catename + '/' + jsontab[n-1].fields.slug">
             <h2 class="p">
-                {{jsontab[n-1].title}}
+                {{jsontab[n-1].fields.title}}
             </h2>
             <p class="post-meta" style="padding-left:1em">
                 Posted 
-                on {{jsontab[n-1].date}}  
+                on {{ (jsontab[n-1].fields.publishDate).slice(0,-12) }}  
             </p>
         </nuxt-link>
     </div>
