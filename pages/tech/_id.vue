@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
             <div class="post-heading">
-                <h1>{{title}}</h1>
+                <h1>{{blogs[0].fields.title}}</h1>
                 <h2 class="subheading"></h2>
-                <span class="meta">Posted on {{date}}</span>
+                <span class="meta">Posted on {{(blogs[0].fields.publishDate).slice(0,-12)}}</span>
             </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
     <article>
         <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto" v-html="content">
+            <div class="col-lg-8 col-md-10 mx-auto" v-html="$md.render(blogs[0].fields.body)">
             </div>
         </div>
         </div>
@@ -25,6 +25,8 @@
 </div>
 </template>
 <script>
+import {createClient} from '~/plugins/contentful.js'
+const client = createClient()
 export default {
   data:function(){
     return{
@@ -66,6 +68,20 @@ export default {
       this.date = JSON.parse(JSON.stringify(this.$store.state.tech))[this.article]["date"]
     }
   },
+  asyncData ({env,params}) {
+    return Promise.all([
+      client.getEntries({
+        'content_type': env.CTF_BLOG_POST_TYPE_ID,
+        order: '-sys.createdAt',
+        "fields.tags":"tech",
+        "fields.slug":params.id
+      }),
+    ]).then(([blogs]) => {
+      return {
+        blogs: blogs.items,
+      }
+    }).catch(console.error)
+  }
 }
 </script>
 <style scoped>

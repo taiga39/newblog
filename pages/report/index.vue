@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <h2 class="graph-h">Report</h2>
-                <nuxt-link v-bind:to="'/blog/'+ blogs[i].fields.slug" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
+                <nuxt-link v-bind:to="'/report/'+ blogs[i].fields.slug" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
                     <div>
                         <h2 class="post-title">
                             {{blogs[i+(page*5)].fields.title}}
