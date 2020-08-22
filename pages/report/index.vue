@@ -17,7 +17,7 @@
         <Graph :reports="report"/>
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-                <h2 class="graph-h">Blog</h2>
+                <h2 class="graph-h">Report</h2>
                 <nuxt-link v-bind:to="'/blog/'+ blogs[i].fields.slug" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
                     <div>
                         <h2 class="post-title">
@@ -56,10 +56,10 @@ export default {
             page:0,
             pagelength:0,
             meta: {
-                title: 'Blog | タイガ★ログ',
-                description: 'ブログ記事',
+                title: 'Report | タイガ★ログ',
+                description: 'レポート',
                 type: 'article',
-                url: 'https://taiga.pw/blog',
+                url: 'https://taiga.pw/report',
                 image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
             },
         }
@@ -85,7 +85,6 @@ export default {
             // }else{
             //     this.jsonlengtha = 5
             // }
-          console.log("sss")
         }
     },
     asyncData ({env}) {

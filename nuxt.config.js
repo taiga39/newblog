@@ -103,6 +103,11 @@ export default {
   */
   build: {
   },
+  router: {
+    middleware: [
+      'getContentful'
+    ]
+  },
   generate:{
     routes() {
       return Promise.all([

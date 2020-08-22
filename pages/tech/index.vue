@@ -16,8 +16,8 @@
   <div class="container">
       <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-              <h2 class="graph-h">Blog</h2>
-              <nuxt-link v-bind:to="'/blog/'+ blogs[i].fields.slug" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
+              <h2 class="graph-h">Tech</h2>
+              <nuxt-link v-bind:to="'/tech/'+ blogs[i].fields.slug" v-for="(n,i) of jsonlength" :key="n" class="post-preview">
                   <div>
                       <h2 class="post-title">
                           {{blogs[i+(page*5)].fields.title}}
@@ -53,10 +53,10 @@ export default {
             page:0,
             pagelength:0,
             meta: {
-                title: 'Blog | タイガ★ログ',
-                description: 'ブログ記事',
+                title: 'BTech | タイガ★ログ',
+                description: '技術記事',
                 type: 'article',
-                url: 'https://taiga.pw/blog',
+                url: 'https://taiga.pw/tech',
                 image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
             },
         }

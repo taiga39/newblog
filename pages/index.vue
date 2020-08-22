@@ -30,13 +30,13 @@
         </div>
         <ul style="padding:0">
           <li v-if="isActive === 1" style="list-style:none;">
-            <Child :jsondata="reports" :catename="report" /> 
+            <Child :jsondata="$store.state.posts" :catename="report" /> 
           </li>
           <li v-else-if="isActive === 2" style="list-style:none;">
-            <Child :jsondata="blogs" :catename="blog" /> 
+            <Child :jsondata="$store.state.blogs" :catename="blog" /> 
           </li>
           <li v-else-if="isActive === 3" style="list-style:none;">
-            <Child :jsondata="techs" :catename="tech"/> 
+            <Child :jsondata="$store.state.techs" :catename="tech"/> 
           </li>
         </ul>
       </div>
@@ -52,6 +52,7 @@
   import '@/assets/css/clean-blog.min.css'
   import "@/assets/css/bootstrap.min.css";
   import "@/assets/css/all.min.css";
+  import { mapState, mapGetters } from 'vuex'
 
   type Data = {
     isActive: number 
@@ -83,39 +84,11 @@
       var date2: any = new Date(2023, 5, 12);
       this.termday = (date2 - date1) / 86400000;
     },
-    asyncData ({env}) {
-      return Promise.all([
-        client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
-          order: '-sys.createdAt',
-          "fields.tags":"report",
-          limit:5
-        }),
-        client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
-          order: '-sys.createdAt',
-          "fields.tags":"blog",
-          limit:5
-        }),
-        client.getEntries({
-          'content_type': env.CTF_BLOG_POST_TYPE_ID,
-          order: '-sys.createdAt',
-          "fields.tags":"tech",
-          limit:5
-        })
-      ]).then(([reports,blogs,tech]) => {
-        return {
-          reports: reports.items,
-          blogs: blogs.items,
-          techs: tech.items
-        }
-      }).catch(console.error)
+    computed:{
+      ...mapState(['posts','blogs','techs'])
     }
   }
 </script>
-
-
-
 
 <style scoped>
 header{
