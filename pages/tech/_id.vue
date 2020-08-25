@@ -41,7 +41,8 @@ export default {
           image: 'https://firebasestorage.googleapis.com/v0/b/blog-1532b.appspot.com/o/ogp.jpg?alt=media&token=328736a1-cc29-47c1-854b-0bf7d03bd0c8',
       },
       metatitle:"",
-      metadescription:""
+      metadescription:"",
+      metaimg:""
     }
   },
   head () {
@@ -53,7 +54,7 @@ export default {
             { hid: 'og:title', property: 'og:title', content: this.metatitle},
             { hid: 'og:description', property: 'og:description', content: this.metadescription },
             { hid: 'og:url', property: 'og:url', content: this.meta.url },
-            { hid: 'og:image', property: 'og:image', content: this.meta.image },
+            { hid: 'og:image', property: 'og:image', content: this.metaimg },
         ],
       }
   },
@@ -70,6 +71,7 @@ export default {
         blogs: blogs.items,
         metatitle: blogs.items[0].fields.title,
         metadescription:blogs.items[0].fields.description,
+        metaimg:"https:"+blogs.items[0].fields.heroImage.fields.file.url
       }
     }).catch(console.error)
   }
