@@ -256,7 +256,10 @@ export default {
                 this.bp = this.reports[0].fields.bench
                 this.bpunit = 'kg'
             }else if(i == 3){
-                this.lt = this.reports[0].fields.alltime
+                this.lt = 0
+                this.reports.forEach(function(a){
+                    this.lt = a.fields.alltime + this.lt
+                }, this);
                 this.ltunit = 'hours'
             }else if(i == 4){
                 this.toefl = this.reports[0].fields.toefl
