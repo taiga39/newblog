@@ -103,7 +103,7 @@ export default {
 </script>
 <style scoped>
 header{
-  background-image:url('~@/assets/images/back1.jpg');
+  background-image:url('~@/assets/images/back2.jpg');
   background-repeat:none;
   background-size:cover;
 }
