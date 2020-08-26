@@ -60,9 +60,7 @@ export default {
 
 <style scoped>
 @media screen and (max-width:550px) {
-  h2 {
-    font-size: 1.3em;
-  }
+
 }
 
 .post-preview{
