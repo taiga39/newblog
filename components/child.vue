@@ -59,8 +59,18 @@ export default {
 </script>
 
 <style scoped>
+.p{
+  padding:15px;
+}
 @media screen and (max-width:550px) {
+.p{
+  padding:8px;
+}
+.post-meta{
+    padding-bottom:2px;
+    padding-right:2px;
 
+}
 }
 
 .post-preview{

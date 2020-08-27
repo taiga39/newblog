@@ -141,7 +141,6 @@ header{
 input[name="tab_item"] {
   display: none;
 }
-
 .active{
   background-color: #5ab4bd;
   color: #fff;
