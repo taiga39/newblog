@@ -23,7 +23,7 @@
             </div>
             <div class="graph-content">
                 <p class="graph-p">LearningTime</p>
-                <p class="graph-t">0 → 10000</p>
+                <p class="graph-t">0 → 1500</p>
                 <div class="graph" v-on:mouseover="mouseover(3)" v-on:mouseleave="mouseleave(3)">
                     <div class="graph-bar" v-bind:style="{height:hlt}"></div>
                     <div class="target"><p class="target-moji">{{lt}}</p></div>
@@ -217,17 +217,17 @@ export default {
             this.toefl = this.reports[0].fields.toefl
             this.pweight = (this.reports[0].fields.weight - 65) / 10
             this.pbp = (this.reports[0].fields.bench -40) / 40
-            this.plt = this.lt / 10000
+            this.plt = this.lt / 1500
             this.ptoefl = (this.reports[0].fields.toefl-30) /70
             if(window.innerWidth < 912){
                 this.hweight = (this.reports[0].fields.weight -65) / 10 * 33 + "vw"
                 this.hbp = (this.reports[0].fields.bench - 40) / 40 * 33 + "vw"
-                this.hlt = this.lt / 10000 * 33 + "vw"
+                this.hlt = this.lt / 1500 * 33 + "vw"
                 this.htoefl = (this.reports[0].fields.toefl -30) /70  * 33 + "vw"
             }else{
                 this.hweight = (this.reports[0].fields.weight -65) / 10 * 186 + "px"
                 this.hbp = (this.reports[0].fields.bench - 40) / 40 * 186 + "px"
-                this.hlt = this.lt / 10000 * 186 + "px"
+                this.hlt = this.lt / 1500 * 186 + "px"
                 this.htoefl = (this.reports[0].fields.toefl - 30) /70  * 186 + "px"
             }
         }
@@ -241,7 +241,7 @@ export default {
                 this.bp = this.pbp *  100
                 this.bpunit = '%'
             }else if(i == 3){
-                this.lt = (this.plt *  100).toFixed(3)
+                this.lt = (this.plt *  100).toFixed(1)
                 this.ltunit = '%'
             }else if(i == 4){
                 this.toefl = this.ptoefl *  100
