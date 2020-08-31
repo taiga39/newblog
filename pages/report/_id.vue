@@ -16,7 +16,7 @@
     <article>
         <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto" v-html="$md.render(blogs[0].fields.body)">
+            <div class="col-lg-8 col-md-10 mx-auto　post-content line-numbers" v-html="$md.render(blogs[0].fields.body)">
             </div>
         </div>
         </div>
@@ -25,6 +25,7 @@
 </template>
 <script>
 import {createClient} from '~/plugins/contentful.js'
+import Prism from '~/plugins/prism'
 const client = createClient()
 export default {
   data:function(){
@@ -61,6 +62,9 @@ export default {
   created(){
       this.category = (this.$route.path).split('/')[1]
       this.article = (this.$route.path).split('/')[2]
+  },
+  mounted() {
+    Prism.highlightAll()
   },
   asyncData ({env,params}) {
     return Promise.all([
