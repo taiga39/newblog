@@ -16,7 +16,7 @@
     <article>
         <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto　post-content line-numbers" v-html="$md.render(blogs[0].fields.body)">
+            <div class="col-lg-8 col-md-10 mx-auto post-content line-numbers" v-html="$md.render(blogs[0].fields.body)">
             </div>
         </div>
         </div>
