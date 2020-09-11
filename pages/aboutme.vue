@@ -17,18 +17,13 @@
             <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
-                    <h2>イシカワタイガ</h2>
-                    <h3>経歴</h3>
+                    <h2>経歴</h2>
                     <p>
                         <br>
                         ２０１７年に大学を卒業後、引き篭もる。
                         <br>
                         ２０１９年４月、東京でWebエンジニアを始める。
-                        <br>
-                        今のところ、初学者くらいのエンジニア。
-                        <br>
-                        <br>
-                        がんばります、ゴルフ１００切りしたい。
+
                     </p>
                 </div>
             </div>
