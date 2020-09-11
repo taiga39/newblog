@@ -53,7 +53,7 @@ export default {
             page:0,
             pagelength:0,
             meta: {
-                title: 'BTech | タイガ★ログ',
+                title: 'Tech | タイガ★ログ',
                 description: '技術記事',
                 type: 'article',
                 url: 'https://taiga.pw/tech',
