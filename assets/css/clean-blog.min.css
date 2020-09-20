@@ -9,7 +9,7 @@
     height: auto;
 }
 .row{
-    line-height:1.8;
+    line-height:1.8 !important;
 }
 .post-preview{
     width:80%;
