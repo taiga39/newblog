@@ -21,7 +21,7 @@
                     <span class="unit">{{bpunit}}</span>
                 </div>
             </div>
-            <div class="graph-content">
+            <div class="graph-content" style="display:none;">
                 <p class="graph-p">LearningTime</p>
                 <p class="graph-t">0 → 1500</p>
                 <div class="graph" v-on:mouseover="mouseover(3)" v-on:mouseleave="mouseleave(3)">
@@ -30,7 +30,7 @@
                     <span class="unit">{{ltunit}}</span>
                 </div>
             </div>
-            <div class="graph-content">
+            <div class="graph-content" style="display:none;">
                 <p class="graph-p">TOEFL iBT</p>
                 <p class="graph-t">30 → 100</p>
                 <div class="graph" v-on:mouseover="mouseover(4)" v-on:mouseleave="mouseleave(4)">

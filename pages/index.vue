@@ -21,22 +21,22 @@
           <span class="nokori">{{termday}}</span><span class="days">days</span>
         </div>
         <div style="display:flex;">
-          <input id="all" type="radio" name="tab_item" checked>
-          <label class="tab_item" for="all" v-on:click="change(1)" v-bind:class="{'active': isActive === 1}">レポート</label>
-          <input id="programming" type="radio" name="tab_item">
+          <input id="programming" type="radio" name="tab_item" checked>
           <label class="tab_item" for="programming" v-on:click="change(2)" v-bind:class="{'active': isActive === 2}">ブログ</label>
           <input id="design" type="radio" name="tab_item">
           <label class="tab_item" for="design" v-on:click="change(3)" v-bind:class="{'active': isActive === 3}">テック</label>
+          <input id="all" type="radio" name="tab_item">
+          <label class="tab_item" for="all" v-on:click="change(1)" v-bind:class="{'active': isActive === 1}">レポート</label>
         </div>
         <ul style="padding:0">
-          <li v-if="isActive === 1" style="list-style:none;">
-            <Child :jsondata="$store.state.posts" :catename="report" /> 
-          </li>
-          <li v-else-if="isActive === 2" style="list-style:none;">
+          <li v-if="isActive === 2" style="list-style:none;">
             <Child :jsondata="$store.state.blogs" :catename="blog" /> 
           </li>
           <li v-else-if="isActive === 3" style="list-style:none;">
             <Child :jsondata="$store.state.techs" :catename="tech"/> 
+          </li>
+          <li v-else-if="isActive === 1" style="list-style:none;">
+            <Child :jsondata="$store.state.posts" :catename="report" /> 
           </li>
         </ul>
       </div>
@@ -63,7 +63,7 @@
   export default {
     data(){
       return{
-        isActive: 1,
+        isActive: 2,
         termday: 10000,
         report: "report",
         blog: "blog",
